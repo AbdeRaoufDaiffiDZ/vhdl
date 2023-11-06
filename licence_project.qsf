@@ -60,9 +60,6 @@ set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
 set_global_assignment -name VECTOR_OUTPUT_FORMAT VWF
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_N2 -to CLK
 set_location_assignment PIN_F25 -to ADC_CLK
 set_location_assignment PIN_J20 -to MOSI
@@ -80,7 +77,16 @@ set_location_assignment PIN_Y13 -to LED10
 set_location_assignment PIN_AA13 -to LED11
 set_location_assignment PIN_AC14 -to LED12
 set_global_assignment -name VHDL_FILE MOSI.vhd
-set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "C:/Users/raouf daiffi/Desktop/fpga/licence/Waveform.vwf"
 set_location_assignment PIN_F26 -to ADC_CS
 set_global_assignment -name VHDL_FILE PWM.vhd
+set_location_assignment PIN_D25 -to DRONE
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name VHDL_FILE test.vhd
+set_global_assignment -name BDF_FILE old.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE spi_waveForm.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE ALL_test.vwf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "C:/Users/raouf daiffi/Desktop/fpga/licence/ALL_test.vwf"

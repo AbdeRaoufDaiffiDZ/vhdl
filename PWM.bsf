@@ -46,17 +46,12 @@ applicable agreement for further details.
 	)
 	(parameter
 		"pwm_period"
-		"1000000"
+		"10"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"min_value"
-		"500000"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"max_value"
-		"1000000"
+		"0"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter

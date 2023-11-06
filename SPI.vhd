@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 entity SPI is 
 generic(
 control_bits: unsigned(7 downto 0):= "00011000"; -- the 3 forst zeros are add on order to make the word 8bits, the first 1 is the starting bits
-avrg_width: integer:=1; 
+avrg_width: integer:=2; 
 word_width: integer:= 24
 );
 port(
@@ -16,6 +16,8 @@ SCLK: in std_logic; -- the SPI protocol clock
 ADC_CLK: out std_logic; -- the ADC clock
 ADC_CS: out std_logic := '1'; -- the ship select pin
 data_rec: out unsigned(11 downto 0); -- the recived data from ADC in form of 1 byte word
+data_rec_test: out unsigned(11 downto 0); -- the recived data from ADC in form of 1 byte word
+
 numberout: out std_logic
 );
 
@@ -72,7 +74,7 @@ spi_rx_data: process(SCLK)		 -- the reciving  process on each falling_edge
 						avrg <= avrg -1;
 						avr_data <= avr_data + rx_data(13 downto 2); -- addition of data in order to count the average but is not used since the value of number of summition is set to 1
 						data_rx_counter <= word_width; -- reload initinal value to the reciving counter
-						
+						data_rec_test <= rx_data(13 downto 2);
 					elsif(avrg = 0) then 
 								data_rec <= avr_data / avrg_width;
 								avrg <= avrg_width;	
